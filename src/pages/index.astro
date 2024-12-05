@@ -1,16 +1,25 @@
 ---
 // Base Layout
-import BaseLayout from '../layouts/BaseLayout.astro';
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Fieldset from "../components/Fieldset.astro";
+import "../styles/myCustomStyles.css";
+import { getAbilityScores } from "../getData";
 
-// Global Styles
-import '../styles/myCustomStyles.css';
-
-// Your App
-// import your <App />
+const abilityScoresJSON = await getAbilityScores();
 ---
 
 <BaseLayout>
-	
-	✅ Check ✅ Check
-
+	{
+		abilityScoresJSON.map((data) => {
+			return (
+				<Fieldset
+					data={data}
+					index={data.index}
+					desc={data.desc}
+					full_name={data.full_name}
+					skills={data.skills}
+				/>
+			);
+		})
+	}
 </BaseLayout>
