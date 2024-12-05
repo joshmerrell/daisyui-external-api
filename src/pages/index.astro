@@ -1,18 +1,26 @@
 ---
 // Base Layout
 import BaseLayout from "../layouts/BaseLayout.astro";
-import Fieldset from "../components/Fieldset.astro";
 import "../styles/myCustomStyles.css";
 import { getAbilityScores } from "../getData";
+import AbilityScore from "../components/AbilityScore.astro";
 
 const abilityScoresJSON = await getAbilityScores();
 ---
 
 <BaseLayout>
+	<header>
+		<h1 class="text-xl font-bold m-4 title">
+			Dungeons and Dragons 5th Edition
+		</h1>
+		<h2 class="text-lg m-4 title">
+			List of ability scores
+		</h2>
+	</header>
 	{
 		abilityScoresJSON.map((data) => {
 			return (
-				<Fieldset
+				<AbilityScore
 					data={data}
 					index={data.index}
 					desc={data.desc}
@@ -22,4 +30,11 @@ const abilityScoresJSON = await getAbilityScores();
 			);
 		})
 	}
+	<footer>
+		<img
+			style="margin-left: auto; margin-right: auto;"
+			src="/github.svg"
+			alt=""
+		/>
+	</footer>
 </BaseLayout>
