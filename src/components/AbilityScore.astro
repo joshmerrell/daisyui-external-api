@@ -4,7 +4,7 @@ const { data, index, desc, full_name, skills } = Astro.props;
 const description = (desc instanceof Array ? desc.join(" ") : desc) as string;
 ---
 
-<div class="card m-4 w-1/2 shadow-lg">
+<div id={`ability-score-${index}`} class="card m-4 w-1/2 shadow-lg ability-score">
     <div class="card-body">
         <h2 class="card-title">{full_name}</h2>
         <p class="desc">{description}</p>

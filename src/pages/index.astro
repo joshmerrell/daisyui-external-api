@@ -1,7 +1,6 @@
 ---
-// Base Layout
 import BaseLayout from "../layouts/BaseLayout.astro";
-import "../styles/myCustomStyles.css";
+import "../styles/global.css";
 import { getAbilityScores } from "../getData";
 import AbilityScore from "../components/AbilityScore.astro";
 
@@ -13,9 +12,7 @@ const abilityScoresJSON = await getAbilityScores();
 		<h1 class="text-xl font-bold m-4 title">
 			Dungeons and Dragons 5th Edition
 		</h1>
-		<h2 class="text-lg m-4 title">
-			List of ability scores
-		</h2>
+		<h2 class="text-lg m-4 title">List of ability scores</h2>
 	</header>
 	{
 		abilityScoresJSON.map((data) => {
@@ -30,11 +27,13 @@ const abilityScoresJSON = await getAbilityScores();
 			);
 		})
 	}
-	<footer>
-		<img
-			style="margin-left: auto; margin-right: auto;"
-			src="/github.svg"
-			alt=""
-		/>
+	<footer class="m-8">
+		<a href="https://github.com/joshmerrell/daisyui-external-api">
+			<img
+				style="margin-left: auto; margin-right: auto;"
+				src="/github.svg"
+				alt="Github repo"
+			/>
+		</a>
 	</footer>
 </BaseLayout>
