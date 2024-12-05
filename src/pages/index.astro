@@ -1,4 +1,5 @@
 ---
+import { SITE_TITLE, REPO_URL } from "../consts";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import "../styles/global.css";
 import { getAbilityScores } from "../getData";
@@ -9,10 +10,7 @@ const abilityScoresJSON = await getAbilityScores();
 
 <BaseLayout>
 	<header>
-		<h1 class="text-xl font-bold m-4 title">
-			Dungeons and Dragons 5th Edition
-		</h1>
-		<h2 class="text-lg m-4 title">List of ability scores</h2>
+		<h1 class="text-xl font-bold m-4 title">{SITE_TITLE}</h1>
 	</header>
 	{
 		abilityScoresJSON.map((data) => {
@@ -29,11 +27,7 @@ const abilityScoresJSON = await getAbilityScores();
 	}
 	<footer class="m-8">
 		<a href="https://github.com/joshmerrell/daisyui-external-api">
-			<img
-				style="margin-left: auto; margin-right: auto;"
-				src="/github.svg"
-				alt="Github repo"
-			/>
+			<img src="/github.svg" alt={REPO_URL} class="github-icon" />
 		</a>
 	</footer>
 </BaseLayout>
