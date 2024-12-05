@@ -1,5 +1,5 @@
-# Astro with Daisy UI (a Tailwind CSS plugin)
+# D&D 5th Edition Ability Scores info
+Uses Astro, TailwindCSS, and daisyUI to display ability scores from Dungeons and Dragons
 
-Astro API to retreive API REST data and display with Daisy UI (a Tailwind plugin). 
-
-
+## API Source
+https://www.dnd5eapi.co/
